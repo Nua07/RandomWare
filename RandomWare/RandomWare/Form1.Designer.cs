@@ -69,7 +69,7 @@
             // 
             this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 14.25F);
-            this.label2.Location = new System.Drawing.Point(15, 311);
+            this.label2.Location = new System.Drawing.Point(21, 311);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 62);
             this.label2.TabIndex = 3;
